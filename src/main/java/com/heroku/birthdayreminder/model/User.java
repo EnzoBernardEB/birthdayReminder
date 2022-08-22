@@ -12,11 +12,16 @@ public class User {
     private String username;
     private String email;
     private String password;
+
     @OneToMany(mappedBy="user")
     private Set<Birthdate> birthdays;
 
     public User() {
         super();
+    }
+
+    public Set<Birthdate> getBirthdays() {
+        return birthdays;
     }
 
     public Long getId() {

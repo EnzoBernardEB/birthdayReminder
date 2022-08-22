@@ -20,6 +20,10 @@ public class Birthdate {
         super();
     }
 
+    public User getUser() {
+        return user;
+    }
+
     public Long getId() {
         return id;
     }
@@ -34,5 +38,16 @@ public class Birthdate {
 
     public LocalDate getDate() {
         return date;
+    }
+
+    @Override
+    public String toString() {
+        return "Birthdate{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", date=" + date +
+                ", user=" + user +
+                '}';
     }
 }
