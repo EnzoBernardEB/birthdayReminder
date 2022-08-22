@@ -15,6 +15,7 @@
     <description>birthday-reminder</description>
     <properties>
         <java.version>17</java.version>
+        <jdkVersion>17</jdkVersion>
     </properties>
     <dependencies>
         <dependency>
@@ -62,6 +63,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.heroku.sdk</groupId>
+                <artifactId>heroku-maven-plugin</artifactId>
+                <version>3.0.3</version>
             </plugin>
         </plugins>
     </build>
