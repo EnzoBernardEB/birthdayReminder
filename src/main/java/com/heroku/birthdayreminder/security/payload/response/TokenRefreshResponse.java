@@ -1,4 +1,4 @@
-package com.heroku.birthdayreminder.payload.response;
+package com.heroku.birthdayreminder.security.payload.response;
 
 public class TokenRefreshResponse {
     private String accessToken;

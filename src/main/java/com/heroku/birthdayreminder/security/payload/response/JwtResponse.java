@@ -1,4 +1,4 @@
-package com.heroku.birthdayreminder.payload.response;
+package com.heroku.birthdayreminder.security.payload.response;
 
 import java.util.List;
 import java.util.UUID;

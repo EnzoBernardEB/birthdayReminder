@@ -1,4 +1,4 @@
-package com.heroku.birthdayreminder.payload.request;
+package com.heroku.birthdayreminder.security.payload.request;
 
 import java.util.Set;
 

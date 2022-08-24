@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public interface UserService {
     public User login(String username, String password);
     public List<User> getAllUsers();
     public User save(User user);
+    public User findUserById(UUID userId);
 }

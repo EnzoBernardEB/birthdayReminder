@@ -1,5 +1,6 @@
 package com.heroku.birthdayreminder.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -19,12 +20,31 @@ public class Birthdate {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnore
     private User user;
 
     public Birthdate() {
         super();
     }
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
 
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
 
     public UUID getId() {
         return id;

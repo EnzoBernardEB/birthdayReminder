@@ -5,7 +5,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 import com.heroku.birthdayreminder.exception.TokenRefreshException;
-import com.heroku.birthdayreminder.payload.RefreshToken;
+import com.heroku.birthdayreminder.security.payload.RefreshToken;
 import com.heroku.birthdayreminder.repository.RefreshTokenRepository;
 import com.heroku.birthdayreminder.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

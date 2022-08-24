@@ -11,4 +11,5 @@ public interface BirthdateService {
     public List<Birthdate> getAllBirthdays();
     public List<Birthdate> getBirthdaysByUserId(UUID userId);
     public Birthdate save(Birthdate birthday);
+    public Birthdate findBirthdateById(UUID birthdateId);
 }

@@ -1,4 +1,4 @@
-package com.heroku.birthdayreminder.payload;
+package com.heroku.birthdayreminder.security.payload;
 
 import com.heroku.birthdayreminder.model.User;
 

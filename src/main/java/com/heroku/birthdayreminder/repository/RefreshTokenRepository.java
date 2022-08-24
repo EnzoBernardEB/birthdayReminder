@@ -2,7 +2,7 @@ package com.heroku.birthdayreminder.repository;
 
 
 import com.heroku.birthdayreminder.model.User;
-import com.heroku.birthdayreminder.payload.RefreshToken;
+import com.heroku.birthdayreminder.security.payload.RefreshToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Repository;
