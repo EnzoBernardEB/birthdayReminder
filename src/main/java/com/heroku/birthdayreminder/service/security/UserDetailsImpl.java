@@ -1,6 +1,7 @@
 package com.heroku.birthdayreminder.service.security;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.heroku.birthdayreminder.model.Birthdate;
 import com.heroku.birthdayreminder.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -8,10 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class UserDetailsImpl implements UserDetails {
@@ -22,13 +20,15 @@ public class UserDetailsImpl implements UserDetails {
     @JsonIgnore
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
+    private Set<Birthdate> birthdates;
     public UserDetailsImpl(UUID id, String username, String email, String password,
-                           Collection<? extends GrantedAuthority> authorities) {
+                           Collection<? extends GrantedAuthority> authorities, Set<Birthdate> birthdates) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
         this.authorities = authorities;
+        this.birthdates = birthdates;
     }
     public static UserDetailsImpl build(User user) {
         List<GrantedAuthority> authorities = user.getRoles().stream()
@@ -39,7 +39,8 @@ public class UserDetailsImpl implements UserDetails {
                 user.getUsername(),
                 user.getEmail(),
                 user.getPassword(),
-                authorities);
+                authorities,
+                user.getBirthdays());
     }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -59,6 +60,12 @@ public class UserDetailsImpl implements UserDetails {
     public String getUsername() {
         return username;
     }
+
+    public Set<Birthdate> getBirthdates() {
+        return birthdates;
+    }
+
+
     @Override
     public boolean isAccountNonExpired() {
         return true;

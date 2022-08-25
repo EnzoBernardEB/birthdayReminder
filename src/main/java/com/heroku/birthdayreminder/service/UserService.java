@@ -13,5 +13,4 @@ public interface UserService {
     public User login(String username, String password);
     public List<User> getAllUsers();
     public User save(User user);
-    public User findUserById(UUID userId);
 }

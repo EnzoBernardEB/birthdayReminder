@@ -45,7 +45,6 @@ public class UserServiceImpl implements UserService {
 
       return result;
     };
-    @Override
     public User findUserById(UUID userId) {
         Optional<User> result = userRepository.findById(userId);
         if(result.isPresent()) {
@@ -54,4 +53,5 @@ public class UserServiceImpl implements UserService {
             throw new ResourceNotFoundException("User Unknown");
         }
     }
+
 }

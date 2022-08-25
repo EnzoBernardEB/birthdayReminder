@@ -6,6 +6,7 @@ import com.heroku.birthdayreminder.model.User;
 import com.heroku.birthdayreminder.service.BirthdateService;
 import com.heroku.birthdayreminder.service.BirthdateServiceImpl;
 import com.heroku.birthdayreminder.service.UserService;
+import com.heroku.birthdayreminder.service.UserServiceImpl;
 import com.heroku.birthdayreminder.utils.BirthdateMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,7 @@ import java.util.UUID;
 public class UserController
 {
     @Autowired
-    UserService userService;
+    UserServiceImpl userService;
     @Autowired
     BirthdateServiceImpl birthdateService;
 
@@ -37,14 +38,21 @@ public class UserController
     public ResponseEntity<List<User>> getUsers() {
         List<User> result = userService.getAllUsers();
 
-        return new ResponseEntity<>(result,HttpStatus.OK);
+        return new ResponseEntity<List<User>>(result,HttpStatus.OK);
+    }
+
+    @GetMapping(value = {"/{userId}" })
+    public ResponseEntity<User> getUser(@PathVariable("userId") UUID userId) {
+        User result = userService.findUserById(userId);
+
+        return new ResponseEntity<User>(result,HttpStatus.OK);
     }
 
     @GetMapping(value = {"/{userId}/birthdates" })
     public ResponseEntity<List<Birthdate>> getUserBirthdates(@PathVariable("userId") UUID userId) {
         List<Birthdate> result = birthdateService.getBirthdaysByUserId(userId);
 
-        return new ResponseEntity<>(result,HttpStatus.OK);
+        return new ResponseEntity<List<Birthdate>>(result,HttpStatus.OK);
     }
 
     @PostMapping("/birthdates")
