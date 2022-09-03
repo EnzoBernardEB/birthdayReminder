@@ -1,9 +1,12 @@
 package com.heroku.birthdayreminder.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -14,8 +17,13 @@ public class Birthdate {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false, columnDefinition = "UUID default gen_random_uuid()")
     private UUID id;
+    @NotBlank
+    @Size(max = 20)
     private String firstname;
+    @NotBlank
+    @Size(max = 50)
     private String lastname;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate date;
 
     @ManyToOne

@@ -1,11 +1,14 @@
 package com.heroku.birthdayreminder.DTO;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDate;
 import java.util.UUID;
 
 public class BirthdateDTO {
 
     UUID id;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     LocalDate date;
     String firstname;
     String lastname;
